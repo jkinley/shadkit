@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autogrid",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/new-york/autogrid.tsx",
+      "content": "import type { ReactNode, CSSProperties, HTMLAttributes } from 'react';\nimport { cn } from '@/lib/utils';\n\ninterface AutoGridProps extends HTMLAttributes<HTMLDivElement> {\n  children: ReactNode;\n  colWidth?: string;\n  mode?: string;\n  gap?: string;\n}\n\nconst AutoGrid = ({ children, className, colWidth, mode, gap, ...props }: AutoGridProps) => {\n  const gridVars = {\n    '--col-width': colWidth,\n    '--layout': mode,\n    '--gap': gap\n  } as CSSProperties;\n\n  return (\n    <div className={cn('autogrid', className)} style={gridVars} {...props}>\n      {children}\n    </div>\n  );\n};\n\nexport { AutoGrid };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

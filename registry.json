@@ -4,11 +4,32 @@
   "homepage": "https://acme.com",
   "items": [
     {
+      "name": "autogrid",
+      "type": "registry:ui",
+      "css": {
+        "@layer components": {
+          "autogrid": {
+            "display": "grid",
+            "grid-template-columns": "repeat(var(--mode, auto-fill), minmax(var(--col-width, 45ch), 1fr))",
+            "gap": "var(--gap, 1rem)"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/new-york/autogrid.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "hello-world",
       "type": "registry:component",
       "title": "Hello World",
       "description": "A simple hello world component",
-      "registryDependencies": ["button"],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
           "path": "registry/new-york/hello-world/hello-world.tsx",
@@ -21,8 +42,16 @@
       "type": "registry:component",
       "title": "Example Form",
       "description": "A contact form with Zod validation.",
-      "dependencies": ["zod"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "dependencies": [
+        "zod"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "label",
+        "textarea",
+        "card"
+      ],
       "files": [
         {
           "path": "registry/new-york/example-form/example-form.tsx",
@@ -35,7 +64,9 @@
       "type": "registry:component",
       "title": "Complex Component",
       "description": "A complex component showing hooks, libs and components.",
-      "registryDependencies": ["card"],
+      "registryDependencies": [
+        "card"
+      ],
       "files": [
         {
           "path": "registry/new-york/complex-component/page.tsx",
