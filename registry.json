@@ -20,7 +20,7 @@
       "type": "registry:ui",
       "css": {
         "@layer components": {
-          "autogrid": {
+          ".autogrid": {
             "display": "grid",
             "grid-template-columns": "repeat(var(--mode, auto-fill), minmax(var(--col-width, 45ch), 1fr))",
             "gap": "var(--gap, 1rem)"
