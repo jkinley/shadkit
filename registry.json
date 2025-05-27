@@ -14,6 +14,25 @@
           "type": "registry:component"
         }
       ]
+    },
+    {
+      "name": "autogrid",
+      "type": "registry:ui",
+      "css": {
+        "@layer components": {
+          "autogrid": {
+            "display": "grid",
+            "grid-template-columns": "repeat(var(--mode, auto-fill), minmax(var(--col-width, 45ch), 1fr))",
+            "gap": "var(--gap, 1rem)"
+          }
+        }
+      },
+      "files": [
+        {
+          "path": "registry/new-york/ui/autogrid.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
