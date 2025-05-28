@@ -4,18 +4,6 @@
   "homepage": "https://acme.com",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:block",
-      "title": "Hello World",
-      "description": "A simple hello world component.",
-      "files": [
-        {
-          "path": "registry/hello-world/hello-world.tsx",
-          "type": "registry:component"
-        }
-      ]
-    },
-    {
       "name": "autogrid",
       "type": "registry:ui",
       "css": {
@@ -41,6 +29,19 @@
         {
           "path": "registry/ui/alert.tsx",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dashgrid",
+      "type": "registry:component",
+      "title": "Dashgrid",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "registry/new-york/dashgrid/page.tsx",
+          "type": "registry:page",
+          "target": "routes/dashgrid/page.tsx"
         }
       ]
     }
