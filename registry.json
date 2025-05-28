@@ -42,7 +42,7 @@
         {
           "path": "registry/blocks/dashgrid/page.tsx",
           "type": "registry:page",
-          "target": "src/routes/dashgrid/"
+          "target": "~/src/routes/dashgrid.tsx"
         }
       ]
     }
