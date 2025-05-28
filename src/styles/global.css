@@ -139,11 +139,7 @@ code {
 @layer components {
   .autogrid {
     display: grid;
-    grid-template-columns: repeat(var(--mode, auto-fill), minmax(var(--col-width, 45ch), 1fr));
+    grid-template-columns: repeat(var(--mode, auto-fill), minmax(min(100%, var(--col-width, 45ch)), 1fr));
     gap: var(--gap, 1rem);
-  }
-  .contain {
-    width: min(100% - var(--gutter, 2rem), var(--max-width, 75rem));
-    margin-inline: auto;
   }
 }

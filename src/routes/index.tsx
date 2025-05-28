@@ -24,10 +24,12 @@ function App() {
             </p>
           </div>
 
-          <AutoGrid>
-            <div className="bg-red-500 p-4 grid place-content-center text-3xl font-bold">1</div>
-            <div className="bg-blue-500 p-4 grid place-content-center text-3xl font-bold">2</div>
-            <div className="bg-fuchsia-500 p-4 grid place-content-center text-3xl font-bold">3</div>
+          <AutoGrid colWidth="200px" gap="1rem">
+            <div className="bg-red-500 h-36 grid place-content-center text-3xl font-bold">1</div>
+            <div className="bg-blue-500 h-36 grid place-content-center text-3xl font-bold">2</div>
+            <div className="bg-fuchsia-500 h-36 grid place-content-center text-3xl font-bold">3</div>
+            <div className="bg-amber-500 h-36 grid place-content-center text-3xl font-bold">4</div>
+            <div className="bg-teal-500 h-36 grid place-content-center text-3xl font-bold">5</div>
           </AutoGrid>
         </div>
       </section>
