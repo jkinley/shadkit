@@ -36,6 +36,7 @@
       "name": "dashgrid",
       "type": "registry:block",
       "title": "Dashgrid",
+      "description": "A grid layout for displaying dashboard items.",
       "registryDependencies": [],
       "files": [
         {
