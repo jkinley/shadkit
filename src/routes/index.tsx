@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { AutoGrid } from '@/registry/ui/autogrid.tsx';
-import { Alert, AlertDescription, AlertTitle } from '@/registry/ui/alert';
+import { AutoGrid } from 'registry/ui/autogrid';
+import { Alert, AlertDescription, AlertTitle } from 'registry/ui/alert';
 
 export const Route = createFileRoute('/')({
   component: App

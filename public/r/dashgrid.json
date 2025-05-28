@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashgrid",
+  "type": "registry:block",
+  "title": "Dashgrid",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "registry/blocks/dashgrid/page.tsx",
+      "content": "export default function Dashgrid() {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full\">\n      <h1>Welcome to Dashgrid</h1>\n    </div>\n  );\n}\n",
+      "type": "registry:page",
+      "target": "routes/dashgrid/page.tsx"
+    }
+  ]
+}

@@ -34,12 +34,12 @@
     },
     {
       "name": "dashgrid",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Dashgrid",
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/new-york/dashgrid/page.tsx",
+          "path": "registry/blocks/dashgrid/page.tsx",
           "type": "registry:page",
           "target": "routes/dashgrid/page.tsx"
         }
