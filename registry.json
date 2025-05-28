@@ -10,7 +10,7 @@
       "description": "A simple hello world component.",
       "files": [
         {
-          "path": "registry/new-york/hello-world/hello-world.tsx",
+          "path": "registry/hello-world/hello-world.tsx",
           "type": "registry:component"
         }
       ]
@@ -29,7 +29,17 @@
       },
       "files": [
         {
-          "path": "registry/new-york/ui/autogrid.tsx",
+          "path": "registry/ui/autogrid.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/alert.tsx",
           "type": "registry:ui"
         }
       ]
