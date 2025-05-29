@@ -1,12 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useUsers } from './hooks/use-users';
+import { useUsers } from './hooks/useUsers';
 
-export const Route = createFileRoute('/dashgrid')({
-  component: RouteComponent
+export const Route = createFileRoute('/dashgrid/')({
+  component: DashGrid
 });
 
-function RouteComponent() {
+function DashGrid() {
   const { data: users, isLoading } = useUsers();
 
   if (isLoading) return <div>Loading...</div>;
