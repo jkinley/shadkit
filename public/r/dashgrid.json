@@ -4,11 +4,13 @@
   "type": "registry:block",
   "title": "Dashgrid",
   "description": "A grid layout for displaying dashboard items.",
-  "registryDependencies": [],
+  "registryDependencies": [
+    "card"
+  ],
   "files": [
     {
       "path": "registry/blocks/dashgrid/dashgrid.tsx",
-      "content": "import { createFileRoute } from '@tanstack/react-router';\n\nexport const Route = createFileRoute('/dashgrid')({\n  component: RouteComponent\n});\n\nfunction RouteComponent() {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full\">\n      <h1 className=\"text-4xl font-bold\">Welcome to Dashgrid</h1>\n    </div>\n  );\n}\n",
+      "content": "import { createFileRoute } from '@tanstack/react-router';\nimport { Card } from '@/components/ui/card';\n\nexport const Route = createFileRoute('/dashgrid')({\n  component: RouteComponent\n});\n\nfunction RouteComponent() {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full\">\n      <h1 className=\"text-4xl font-bold\">Welcome to Dashgrid</h1>\n      <p className=\"mt-4 text-lg\">This is a simple example of a Dashgrid layout.</p>\n      <div>\n        <Card>Card 1</Card>\n        test\n      </div>\n    </div>\n  );\n}\n",
       "type": "registry:page",
       "target": "~/src/routes/dashgrid.tsx"
     }

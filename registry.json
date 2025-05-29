@@ -37,7 +37,9 @@
       "type": "registry:block",
       "title": "Dashgrid",
       "description": "A grid layout for displaying dashboard items.",
-      "registryDependencies": [],
+      "registryDependencies": [
+        "card"
+      ],
       "files": [
         {
           "path": "registry/blocks/dashgrid/dashgrid.tsx",
