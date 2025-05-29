@@ -3,10 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useUsers } from '@/hooks/use-users';
 
 export const Route = createFileRoute('/dashgrid')({
-  component: DashGrid
+  component: RouteComponent
 });
 
-function DashGrid() {
+function RouteComponent() {
   const { data: users, isLoading } = useUsers();
 
   if (isLoading) return <div>Loading...</div>;
