@@ -38,7 +38,7 @@
       "title": "Dashgrid",
       "description": "A grid layout for displaying dashboard items.",
       "registryDependencies": [
-        "card"
+        "https://shadkit.vercel.app/r/card.json"
       ],
       "files": [
         {

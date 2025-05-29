@@ -5,12 +5,12 @@
   "title": "Dashgrid",
   "description": "A grid layout for displaying dashboard items.",
   "registryDependencies": [
-    "card"
+    "https://shadkit.vercel.app/r/card.json"
   ],
   "files": [
     {
       "path": "registry/blocks/dashgrid/dashgrid.tsx",
-      "content": "import { createFileRoute } from '@tanstack/react-router';\nimport { Card } from '@/components/ui/card';\n\nexport const Route = createFileRoute('/dashgrid')({\n  component: RouteComponent\n});\n\nfunction RouteComponent() {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full\">\n      <h1 className=\"text-4xl font-bold\">Welcome to Dashgrid</h1>\n      <p className=\"mt-4 text-lg\">This is a simple example of a Dashgrid layout.</p>\n      <div>\n        <Card>Card 1</Card>\n        test\n      </div>\n    </div>\n  );\n}\n",
+      "content": "import { createFileRoute } from '@tanstack/react-router';\nimport { Card, CardContent, CardTitle } from '@/components/ui/card';\n\nexport const Route = createFileRoute('/dashgrid')({\n  component: RouteComponent\n});\n\nfunction RouteComponent() {\n  return (\n    <div className=\"max-w-6xl mx-auto p-4\">\n      <div>\n        <h1 className=\"text-4xl font-bold\">Welcome to Dashgrid</h1>\n        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A rem accusantium quam.</p>\n      </div>\n\n      <div>\n        <Card>\n          <CardContent>\n            <CardTitle className=\"mb-4\">Card 1</CardTitle>\n            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis officia quisquam eum amet possimus\n            nobis nostrum quas necessitatibus cum atque sapiente ducimus rerum velit facere architecto modi, maiores\n            animi soluta.\n          </CardContent>\n        </Card>\n      </div>\n    </div>\n  );\n}\n",
       "type": "registry:page",
       "target": "~/src/routes/dashgrid.tsx"
     }
