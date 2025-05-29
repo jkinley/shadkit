@@ -45,7 +45,7 @@
     {
       "name": "dashgrid",
       "type": "registry:block",
-      "title": "Dashgrid",
+      "title": "DashGrid",
       "description": "A grid layout for displaying dashboard items.",
       "registryDependencies": [
         "https://shadkit.vercel.app/r/card.json"
@@ -55,6 +55,16 @@
           "path": "registry/blocks/dashgrid/dashgrid.tsx",
           "type": "registry:page",
           "target": "~/src/routes/dashgrid.tsx"
+        },
+        {
+          "path": "registry/blocks/dashgrid/hooks/use-users.tsx",
+          "type": "registry:hook",
+          "target": "~/src/hooks/use-users.tsx"
+        },
+        {
+          "path": "registry/blocks/dashgrid/lib/users.tsx",
+          "type": "registry:lib",
+          "target": "~/src/lib/users.tsx"
         }
       ]
     }

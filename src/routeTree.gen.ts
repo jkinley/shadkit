@@ -11,20 +11,20 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as DashgridImport } from './routes/dashgrid'
 import { Route as IndexImport } from './routes/index'
+import { Route as DashgridIndexImport } from './routes/dashgrid/index'
 
 // Create/Update Routes
-
-const DashgridRoute = DashgridImport.update({
-  id: '/dashgrid',
-  path: '/dashgrid',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashgridIndexRoute = DashgridIndexImport.update({
+  id: '/dashgrid/',
+  path: '/dashgrid/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +39,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/dashgrid': {
-      id: '/dashgrid'
+    '/dashgrid/': {
+      id: '/dashgrid/'
       path: '/dashgrid'
       fullPath: '/dashgrid'
-      preLoaderRoute: typeof DashgridImport
+      preLoaderRoute: typeof DashgridIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,18 +53,18 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/dashgrid': typeof DashgridRoute
+  '/dashgrid': typeof DashgridIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/dashgrid': typeof DashgridRoute
+  '/dashgrid': typeof DashgridIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/dashgrid': typeof DashgridRoute
+  '/dashgrid/': typeof DashgridIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -72,18 +72,18 @@ export interface FileRouteTypes {
   fullPaths: '/' | '/dashgrid'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/dashgrid'
-  id: '__root__' | '/' | '/dashgrid'
+  id: '__root__' | '/' | '/dashgrid/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DashgridRoute: typeof DashgridRoute
+  DashgridIndexRoute: typeof DashgridIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DashgridRoute: DashgridRoute,
+  DashgridIndexRoute: DashgridIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +97,14 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/dashgrid"
+        "/dashgrid/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/dashgrid": {
-      "filePath": "dashgrid.tsx"
+    "/dashgrid/": {
+      "filePath": "dashgrid/index.tsx"
     }
   }
 }
