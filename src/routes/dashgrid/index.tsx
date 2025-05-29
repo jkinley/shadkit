@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useUsers } from '@/hooks/use-users';
+import { useUsers } from './-hooks/use-users';
 
-export const Route = createFileRoute('/dashgrid')({
+export const Route = createFileRoute('/dashgrid/')({
   component: DashGrid
 });
 

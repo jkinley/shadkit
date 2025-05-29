@@ -52,19 +52,19 @@
       ],
       "files": [
         {
-          "path": "registry/blocks/dashgrid/dashgrid.tsx",
+          "path": "registry/blocks/dashgrid/index.tsx",
           "type": "registry:page",
-          "target": "~/src/routes/dashgrid.tsx"
+          "target": "~/src/routes/dashgrid/index.tsx"
         },
         {
           "path": "registry/blocks/dashgrid/hooks/use-users.tsx",
           "type": "registry:hook",
-          "target": "~/src/hooks/use-users.tsx"
+          "target": "~/src/routes/dashgrid/-hooks/use-users.tsx"
         },
         {
           "path": "registry/blocks/dashgrid/lib/users.tsx",
           "type": "registry:lib",
-          "target": "~/src/lib/users.tsx"
+          "target": "~/src/routes/dashgrid/-lib/users.tsx"
         }
       ]
     }
