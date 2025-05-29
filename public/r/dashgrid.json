@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "registry/blocks/dashgrid/page.tsx",
-      "content": "export default function Dashgrid() {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full\">\n      <h1>Welcome to Dashgrid</h1>\n    </div>\n  );\n}\n",
+      "content": "import { createFileRoute } from '@tanstack/react-router';\n\nexport const Route = createFileRoute('/dashgrid')({\n  component: Dashgrid\n});\n\nfunction Dashgrid() {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full\">\n      <h1>Welcome to Dashgrid</h1>\n    </div>\n  );\n}\n",
       "type": "registry:page",
       "target": "~/src/routes/dashgrid.tsx"
     }
