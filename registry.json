@@ -40,7 +40,7 @@
       "registryDependencies": [],
       "files": [
         {
-          "path": "registry/blocks/dashgrid/page.tsx",
+          "path": "registry/blocks/dashgrid/dashgrid.tsx",
           "type": "registry:page",
           "target": "~/src/routes/dashgrid.tsx"
         }
