@@ -33,6 +33,16 @@
       ]
     },
     {
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "dashgrid",
       "type": "registry:block",
       "title": "Dashgrid",
