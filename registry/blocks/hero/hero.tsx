@@ -2,9 +2,9 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowUpRight, CirclePlay } from 'lucide-react';
 
-const Hero01 = () => {
+const Hero = () => {
   return (
-    <div className="py-12 grid gap-4">
+    <div className="py-12 grid gap-4 place-items-center">
       <div className="text-center max-w-2xl">
         <Badge className="bg-gradient-to-br via-70% from-primary via-muted/30 to-primary rounded-full py-1 border-none">
           Just released v1.0.0
@@ -29,4 +29,4 @@ const Hero01 = () => {
   );
 };
 
-export default Hero01;
+export default Hero;
