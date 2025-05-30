@@ -37,7 +37,7 @@
       "type": "registry:ui",
       "files": [
         {
-          "path": "registry/ui/alert.tsx",
+          "path": "registry/ui/badge.tsx",
           "type": "registry:ui"
         }
       ]
