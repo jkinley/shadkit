@@ -27,7 +27,30 @@
       "type": "registry:ui",
       "files": [
         {
+          "path": "registry/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "files": [
+        {
           "path": "registry/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/button.tsx",
           "type": "registry:ui"
         }
       ]
@@ -65,6 +88,23 @@
           "path": "registry/blocks/dashgrid/-lib/users.tsx",
           "type": "registry:lib",
           "target": "~/src/routes/dashgrid/-lib/users.tsx"
+        }
+      ]
+    },
+    {
+      "name": "hero",
+      "type": "registry:block",
+      "title": "Hero",
+      "description": "A basic Hero component.",
+      "registryDependencies": [
+        "https://shadkit.vercel.app/r/button.json",
+        "https://shadkit.vercel.app/r/badge.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/hero/hero.tsx",
+          "type": "registry:block",
+          "target": "~/src/components/blocks/hero.tsx"
         }
       ]
     }
