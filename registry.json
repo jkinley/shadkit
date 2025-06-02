@@ -111,6 +111,9 @@
     {
       "name": "racker-red",
       "type": "registry:theme",
+      "registryDependencies": [
+        "https://shadkit.vercel.app/r/racker-red.json"
+      ],
       "cssVars": {
         "theme": {
           "font-heading": "Avenir, sans-serif"

@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "racker-red",
   "type": "registry:theme",
+  "registryDependencies": [
+    "https://shadkit.vercel.app/r/racker-red.json"
+  ],
   "files": [],
   "cssVars": {
     "theme": {
