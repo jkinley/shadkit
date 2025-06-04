@@ -92,6 +92,34 @@
       ]
     },
     {
+      "name": "basic-form",
+      "type": "registry:block",
+      "title": "BasicForm",
+      "description": "A basic tanstack form with zod validations using react query.",
+      "registryDependencies": [
+        "https://shadkit.vercel.app/r/input.json",
+        "https://shadkit.vercel.app/r/label.json",
+        "https://shadkit.vercel.app/r/textarea.json"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/basic-form/index.tsx",
+          "type": "registry:page",
+          "target": "~/src/routes/basic-form/index.tsx"
+        },
+        {
+          "path": "registry/blocks/basic-form/-hooks/use-save-user.tsx",
+          "type": "registry:hook",
+          "target": "~/src/routes/basic-form/-hooks/use-save-use.tsx"
+        },
+        {
+          "path": "registry/blocks/basic-form/-lib/save-user.tsx",
+          "type": "registry:lib",
+          "target": "~/src/routes/basic-form/-lib/save-user.tsx"
+        }
+      ]
+    },
+    {
       "name": "hero",
       "type": "registry:block",
       "title": "Hero",
