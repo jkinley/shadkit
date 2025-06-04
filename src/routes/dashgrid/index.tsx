@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { Card, CardContent, CardHeader, CardTitle } from 'registry/ui/card';
-import { Spinner } from 'registry/ui/spinner';
+
 import { useUsers } from './-hooks/use-users';
 
 export const Route = createFileRoute('/dashgrid/')({
@@ -14,7 +14,7 @@ function DashGrid() {
     return (
       <div>
         <div className="h-screen grid place-content-center">
-          <Spinner size="md" />
+          <p>Loading...</p>
         </div>
       </div>
     );
