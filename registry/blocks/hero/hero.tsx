@@ -3,6 +3,7 @@ import { Button } from '@/registry/ui/button';
 import { ArrowUpRight, CirclePlay } from 'lucide-react';
 
 const Hero = () => {
+  console.log('BUILDING LATEST HERO');
   return (
     <div className="py-12 grid gap-4 place-items-center">
       <div className="text-center max-w-2xl">
