@@ -66,8 +66,10 @@ function App() {
           <div className="mb-6">
             <h2 className="text-3xl font-bold mb-4">AutoGrid</h2>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet qui error, natus consectetur possimus
-              beatae quae. Eaque, vel magni. Dolorum unde fuga error iusto natus quam adipisci quae sapiente eveniet.
+              AutoGrid uses CSS Grid to create a responsive layout that adapts to available space—no media queries
+              required. It dynamically adjusts the number of columns based on the container width, making it ideal for
+              flexible, content-driven layouts. The algorithm ensures items maintain a minimum width while filling the
+              space efficiently.
             </p>
           </div>
 
