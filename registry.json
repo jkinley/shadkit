@@ -146,7 +146,7 @@
         {
           "path": "registry/blocks/basic-form/-hooks/use-save-user.tsx",
           "type": "registry:hook",
-          "target": "~/src/routes/basic-form/-hooks/use-save-use.tsx"
+          "target": "~/src/routes/basic-form/-hooks/use-save-user.tsx"
         },
         {
           "path": "registry/blocks/basic-form/-lib/save-user.tsx",

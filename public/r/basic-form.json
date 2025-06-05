@@ -26,7 +26,7 @@
       "path": "registry/blocks/basic-form/-hooks/use-save-user.tsx",
       "content": "// hooks/useSaveUser.ts\n\nimport { useMutation } from \"@tanstack/react-query\";\nimport { saveUserData, type UserData } from \"../-lib/save-user\";\n\nexport const useSaveUser = () => {\n  return useMutation({\n    mutationFn: (data: UserData) => saveUserData(data),\n  });\n};\n",
       "type": "registry:hook",
-      "target": "~/src/routes/basic-form/-hooks/use-save-use.tsx"
+      "target": "~/src/routes/basic-form/-hooks/use-save-user.tsx"
     },
     {
       "path": "registry/blocks/basic-form/-lib/save-user.tsx",
