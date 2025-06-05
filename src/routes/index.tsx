@@ -1,7 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { AutoGrid } from 'registry/ui/autogrid';
-import { Alert, AlertDescription, AlertTitle } from 'registry/ui/alert';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from 'registry/ui/card';
+
+import { Alert, AlertDescription, AlertTitle } from '@/registry/ui/alert';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/registry/ui/card';
+import Hero from '@/registry/blocks/hero/hero';
 
 export const Route = createFileRoute('/')({
   component: App
@@ -72,14 +73,14 @@ function App() {
               space efficiently.
             </p>
           </div>
-
+          {/* 
           <AutoGrid colWidth="200px" gap="1rem">
             <div className="bg-red-500 h-36 grid place-content-center text-3xl font-bold">1</div>
             <div className="bg-blue-500 h-36 grid place-content-center text-3xl font-bold">2</div>
             <div className="bg-fuchsia-500 h-36 grid place-content-center text-3xl font-bold">3</div>
             <div className="bg-amber-500 h-36 grid place-content-center text-3xl font-bold">4</div>
             <div className="bg-teal-500 h-36 grid place-content-center text-3xl font-bold">5</div>
-          </AutoGrid>
+          </AutoGrid> */}
         </div>
       </section>
 
@@ -106,6 +107,8 @@ function App() {
           </Card>
         </div>
       </section>
+
+      <Hero />
     </div>
   );
 }
