@@ -106,18 +106,6 @@ function App() {
           </Card>
         </div>
       </section>
-
-      <section className="py-8">
-        <div className="max-w-5xl mx-auto p-4">
-          <div className="mb-6">
-            <h2 className="text-3xl font-bold mb-4">Card</h2>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet qui error, natus consectetur possimus
-              beatae quae. Eaque, vel magni. Dolorum unde fuga error iusto natus quam adipisci quae sapiente eveniet.
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
