@@ -130,7 +130,6 @@
         "https://shadkit.vercel.app/r/input.json",
         "https://shadkit.vercel.app/r/label.json",
         "https://shadkit.vercel.app/r/textarea.json",
-        "zod",
         "@tanstack/react-form",
         "@radix-ui/react-label",
         "@radix-ui/react-select"
