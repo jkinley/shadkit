@@ -129,7 +129,8 @@
       "registryDependencies": [
         "https://shadkit.vercel.app/r/input.json",
         "https://shadkit.vercel.app/r/label.json",
-        "https://shadkit.vercel.app/r/textarea.json"
+        "https://shadkit.vercel.app/r/textarea.json",
+        "zod"
       ],
       "files": [
         {
