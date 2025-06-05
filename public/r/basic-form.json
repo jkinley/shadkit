@@ -4,13 +4,16 @@
   "type": "registry:block",
   "title": "BasicForm",
   "description": "A basic tanstack form with zod validations using react query.",
+  "dependencies": [
+    "@tanstack/react-form",
+    "@radix-ui/react-label",
+    "@radix-ui/react-select",
+    "zod"
+  ],
   "registryDependencies": [
     "https://shadkit.vercel.app/r/input.json",
     "https://shadkit.vercel.app/r/label.json",
-    "https://shadkit.vercel.app/r/textarea.json",
-    "@tanstack/react-form",
-    "@radix-ui/react-label",
-    "@radix-ui/react-select"
+    "https://shadkit.vercel.app/r/textarea.json"
   ],
   "files": [
     {
