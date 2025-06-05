@@ -14,8 +14,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-      registry: resolve(__dirname, './registry') // Add this line
+      '@': resolve(__dirname, './src')
     }
   }
 });
