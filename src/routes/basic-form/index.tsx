@@ -1,25 +1,25 @@
 import { createFileRoute } from '@tanstack/react-router';
 import React, { useState } from 'react';
-import { useForm } from "@tanstack/react-form";
-import { z } from "zod";
-import { Label } from 'registry/ui/label';
-import { Textarea } from 'registry/ui/textarea';
-import { Input } from 'registry/ui/input';
+import { useForm } from '@tanstack/react-form';
+import { z } from 'zod';
+import { Label } from '@/registry/ui/label';
+import { Textarea } from '@/registry/ui/textarea';
+import { Input } from '@/registry/ui/input';
 import { useSaveUser } from './-hooks/use-save-user';
 
 const userSchema = z.object({
   firstName: z.string().min(5, {
-    message: "First name cannot be less than 5 letters",
+    message: 'First name cannot be less than 5 letters'
   }),
-  lastName: z.string().min(3, "Last name must be at least 3 characters"),
+  lastName: z.string().min(3, 'Last name must be at least 3 characters')
 });
 
 type User = z.infer<typeof userSchema>;
 
 function BasicForm() {
   const [lastSubmittedValues, setLastSubmittedValues] = useState({
-    firstName: "",
-    lastName: "",
+    firstName: '',
+    lastName: ''
   });
   const [isDirty, setIsDirty] = useState(false);
 
@@ -32,18 +32,18 @@ function BasicForm() {
       setLastSubmittedValues(value);
       saveUserMutation.mutate(value, {
         onSuccess: (data) => {
-          console.log("User saved with ID:", data.id);
-          alert("User created successfully!");
+          console.log('User saved with ID:', data.id);
+          alert('User created successfully!');
         },
         onError: (error) => {
-          console.error("Save failed:", error.message);
-          alert("Failed to create user.");
-        },
+          console.error('Save failed:', error.message);
+          alert('Failed to create user.');
+        }
       });
     },
     validators: {
-      onChange: userSchema,
-    },
+      onChange: userSchema
+    }
   });
 
   const checkDirtyState = (values: User) => {
@@ -55,9 +55,7 @@ function BasicForm() {
   return (
     <div className="container mx-auto p-6">
       <div className="max-w-md mx-auto p-6 bg-white shadow-xl rounded-2xl border border-gray-200 transition-all duration-300">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          TanStack Zod Form with Validations
-        </h1>
+        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">TanStack Zod Form with Validations</h1>
 
         <div className="space-y-4">
           {/* First Name Field */}
@@ -101,12 +99,13 @@ function BasicForm() {
               type="submit"
               disabled={!canSubmit || isValidating || !isDirty || saveUserMutation.isPending}
               onClick={form.handleSubmit}
-              className={`w-full mt-4 py-2 px-4 text-white font-semibold rounded-lg transition-all duration-300 ${canSubmit && isDirty && !saveUserMutation.isPending
-                ? "bg-blue-600 hover:bg-blue-700 active:scale-95"
-                : "bg-gray-300 cursor-not-allowed"
-                }`}
+              className={`w-full mt-4 py-2 px-4 text-white font-semibold rounded-lg transition-all duration-300 ${
+                canSubmit && isDirty && !saveUserMutation.isPending
+                  ? 'bg-blue-600 hover:bg-blue-700 active:scale-95'
+                  : 'bg-gray-300 cursor-not-allowed'
+              }`}
             >
-              {saveUserMutation.isPending ? "Submitting..." : "Submit"}
+              {saveUserMutation.isPending ? 'Submitting...' : 'Submit'}
             </button>
           )}
         </form.Subscribe>
