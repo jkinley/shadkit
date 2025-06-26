@@ -18,6 +18,7 @@ import { Route as MainLayoutComponentsExternalLinkImport } from './routes/_main-
 import { Route as MainLayoutComponentsCardImport } from './routes/_main-layout/components/card'
 import { Route as MainLayoutComponentsAutogridImport } from './routes/_main-layout/components/autogrid'
 import { Route as MainLayoutComponentsAlertImport } from './routes/_main-layout/components/alert'
+import { Route as MainLayoutBlocksHeroImport } from './routes/_main-layout/blocks/hero'
 
 // Create/Update Routes
 
@@ -64,6 +65,12 @@ const MainLayoutComponentsAlertRoute = MainLayoutComponentsAlertImport.update({
   getParentRoute: () => MainLayoutRoute,
 } as any)
 
+const MainLayoutBlocksHeroRoute = MainLayoutBlocksHeroImport.update({
+  id: '/blocks/hero',
+  path: '/blocks/hero',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -80,6 +87,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof MainLayoutIndexImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/blocks/hero': {
+      id: '/_main-layout/blocks/hero'
+      path: '/blocks/hero'
+      fullPath: '/blocks/hero'
+      preLoaderRoute: typeof MainLayoutBlocksHeroImport
       parentRoute: typeof MainLayoutImport
     }
     '/_main-layout/components/alert': {
@@ -124,6 +138,7 @@ declare module '@tanstack/react-router' {
 
 interface MainLayoutRouteChildren {
   MainLayoutIndexRoute: typeof MainLayoutIndexRoute
+  MainLayoutBlocksHeroRoute: typeof MainLayoutBlocksHeroRoute
   MainLayoutComponentsAlertRoute: typeof MainLayoutComponentsAlertRoute
   MainLayoutComponentsAutogridRoute: typeof MainLayoutComponentsAutogridRoute
   MainLayoutComponentsCardRoute: typeof MainLayoutComponentsCardRoute
@@ -133,6 +148,7 @@ interface MainLayoutRouteChildren {
 
 const MainLayoutRouteChildren: MainLayoutRouteChildren = {
   MainLayoutIndexRoute: MainLayoutIndexRoute,
+  MainLayoutBlocksHeroRoute: MainLayoutBlocksHeroRoute,
   MainLayoutComponentsAlertRoute: MainLayoutComponentsAlertRoute,
   MainLayoutComponentsAutogridRoute: MainLayoutComponentsAutogridRoute,
   MainLayoutComponentsCardRoute: MainLayoutComponentsCardRoute,
@@ -147,6 +163,7 @@ const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '': typeof MainLayoutRouteWithChildren
   '/': typeof MainLayoutIndexRoute
+  '/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/components/alert': typeof MainLayoutComponentsAlertRoute
   '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
   '/components/card': typeof MainLayoutComponentsCardRoute
@@ -156,6 +173,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof MainLayoutIndexRoute
+  '/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/components/alert': typeof MainLayoutComponentsAlertRoute
   '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
   '/components/card': typeof MainLayoutComponentsCardRoute
@@ -167,6 +185,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_main-layout': typeof MainLayoutRouteWithChildren
   '/_main-layout/': typeof MainLayoutIndexRoute
+  '/_main-layout/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/_main-layout/components/alert': typeof MainLayoutComponentsAlertRoute
   '/_main-layout/components/autogrid': typeof MainLayoutComponentsAutogridRoute
   '/_main-layout/components/card': typeof MainLayoutComponentsCardRoute
@@ -179,6 +198,7 @@ export interface FileRouteTypes {
   fullPaths:
     | ''
     | '/'
+    | '/blocks/hero'
     | '/components/alert'
     | '/components/autogrid'
     | '/components/card'
@@ -187,6 +207,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/blocks/hero'
     | '/components/alert'
     | '/components/autogrid'
     | '/components/card'
@@ -196,6 +217,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_main-layout'
     | '/_main-layout/'
+    | '/_main-layout/blocks/hero'
     | '/_main-layout/components/alert'
     | '/_main-layout/components/autogrid'
     | '/_main-layout/components/card'
@@ -229,6 +251,7 @@ export const routeTree = rootRoute
       "filePath": "_main-layout.tsx",
       "children": [
         "/_main-layout/",
+        "/_main-layout/blocks/hero",
         "/_main-layout/components/alert",
         "/_main-layout/components/autogrid",
         "/_main-layout/components/card",
@@ -238,6 +261,10 @@ export const routeTree = rootRoute
     },
     "/_main-layout/": {
       "filePath": "_main-layout/index.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/blocks/hero": {
+      "filePath": "_main-layout/blocks/hero.tsx",
       "parent": "/_main-layout"
     },
     "/_main-layout/components/alert": {

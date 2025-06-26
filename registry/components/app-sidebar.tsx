@@ -1,16 +1,3 @@
-import {
-  MessageSquare,
-  List,
-  ReceiptText,
-  Home,
-  Type,
-  Palette,
-  BetweenHorizonalStart,
-  Rocket,
-  LayoutDashboard,
-  Component
-} from 'lucide-react';
-
 import { Link } from '@tanstack/react-router';
 
 import {
@@ -26,55 +13,26 @@ import {
   SidebarMenuItem
 } from '@/components/ui/sidebar';
 
-// Menu items.
-const items = [
+const getStarted = [
   {
-    title: 'Home',
-    url: '/',
-    icon: Home
+    title: 'Introduction',
+    url: '/'
   },
-  {
-    title: 'Dashboard',
-    url: '/dashboard',
-    icon: LayoutDashboard
-  },
-  {
-    title: 'Chat',
-    url: '/chat',
-    icon: MessageSquare
-  },
-  {
-    title: 'List',
-    url: '/list',
-    icon: List
-  },
-  {
-    title: 'Detail',
-    url: '/detail',
-    icon: ReceiptText
-  }
-];
-
-const quickstart = [
   {
     title: 'Typography',
-    url: '/quickstart/typography',
-    icon: Type
+    url: '/quickstart/typography'
   },
   {
     title: 'Color',
-    url: '/quickstart/color',
-    icon: Palette
+    url: '/quickstart/color'
   },
   {
     title: 'Spacing',
-    url: '/quickstart/spacing',
-    icon: BetweenHorizonalStart
+    url: '/quickstart/spacing'
   },
   {
     title: 'Components',
-    url: '/quickstart/components',
-    icon: Component
+    url: '/quickstart/components'
   }
 ];
 
@@ -101,6 +59,13 @@ const components = [
   }
 ];
 
+const blocks = [
+  {
+    title: 'Hero',
+    url: '/blocks/hero'
+  }
+];
+
 export function AppSidebar() {
   return (
     <Sidebar variant="sidebar">
@@ -109,8 +74,7 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link to="/">
-                <Rocket />
-                <span className="text-lg font-bold">UI Kit</span>
+                <span className="text-lg font-bold">ShadKit</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -118,14 +82,13 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Get Started</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {getStarted.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link to={item.url} activeOptions={{ exact: true }} activeProps={{ 'data-active': true }}>
-                      <item.icon />
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
@@ -134,11 +97,12 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
         <SidebarGroup>
-          <SidebarGroupLabel>Quickstart</SidebarGroupLabel>
+          <SidebarGroupLabel>Components</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {quickstart.map((item) => (
+              {components.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link
@@ -149,7 +113,6 @@ export function AppSidebar() {
                         className: 'bg-muted hover:bg-muted'
                       }}
                     >
-                      <item.icon />
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
@@ -162,7 +125,7 @@ export function AppSidebar() {
           <SidebarGroupLabel>Components</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {components.map((item) => (
+              {blocks.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link
