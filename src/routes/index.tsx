@@ -77,7 +77,7 @@ function App() {
               space efficiently.
             </p>
           </div>
-          <div className="relative resize-x border p-8 overflow-auto after:text-xs after:leading-1 after:content-['Resize_Me!'] after:absolute after:right-4 after:bottom-4">
+          <div className="relative resize-x border p-8 overflow-auto after:text-xs after:leading-1 after:content-['Resize_Me!'] after:absolute after:right-4 after:bottom-4 max-w-5xl">
             <AutoGrid colWidth="200px" gap="1rem">
               <div className="bg-red-500 h-36 grid place-content-center text-3xl font-bold">Item 1</div>
               <div className="bg-blue-500 h-36 grid place-content-center text-3xl font-bold">Item 2</div>
