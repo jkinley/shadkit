@@ -13,6 +13,11 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as MainLayoutImport } from './routes/_main-layout'
 import { Route as MainLayoutIndexImport } from './routes/_main-layout/index'
+import { Route as MainLayoutComponentsStatImport } from './routes/_main-layout/components/stat'
+import { Route as MainLayoutComponentsExternalLinkImport } from './routes/_main-layout/components/external-link'
+import { Route as MainLayoutComponentsCardImport } from './routes/_main-layout/components/card'
+import { Route as MainLayoutComponentsAutogridImport } from './routes/_main-layout/components/autogrid'
+import { Route as MainLayoutComponentsAlertImport } from './routes/_main-layout/components/alert'
 
 // Create/Update Routes
 
@@ -24,6 +29,38 @@ const MainLayoutRoute = MainLayoutImport.update({
 const MainLayoutIndexRoute = MainLayoutIndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsStatRoute = MainLayoutComponentsStatImport.update({
+  id: '/components/stat',
+  path: '/components/stat',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsExternalLinkRoute =
+  MainLayoutComponentsExternalLinkImport.update({
+    id: '/components/external-link',
+    path: '/components/external-link',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
+const MainLayoutComponentsCardRoute = MainLayoutComponentsCardImport.update({
+  id: '/components/card',
+  path: '/components/card',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsAutogridRoute =
+  MainLayoutComponentsAutogridImport.update({
+    id: '/components/autogrid',
+    path: '/components/autogrid',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
+const MainLayoutComponentsAlertRoute = MainLayoutComponentsAlertImport.update({
+  id: '/components/alert',
+  path: '/components/alert',
   getParentRoute: () => MainLayoutRoute,
 } as any)
 
@@ -45,6 +82,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainLayoutIndexImport
       parentRoute: typeof MainLayoutImport
     }
+    '/_main-layout/components/alert': {
+      id: '/_main-layout/components/alert'
+      path: '/components/alert'
+      fullPath: '/components/alert'
+      preLoaderRoute: typeof MainLayoutComponentsAlertImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/autogrid': {
+      id: '/_main-layout/components/autogrid'
+      path: '/components/autogrid'
+      fullPath: '/components/autogrid'
+      preLoaderRoute: typeof MainLayoutComponentsAutogridImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/card': {
+      id: '/_main-layout/components/card'
+      path: '/components/card'
+      fullPath: '/components/card'
+      preLoaderRoute: typeof MainLayoutComponentsCardImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/external-link': {
+      id: '/_main-layout/components/external-link'
+      path: '/components/external-link'
+      fullPath: '/components/external-link'
+      preLoaderRoute: typeof MainLayoutComponentsExternalLinkImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/stat': {
+      id: '/_main-layout/components/stat'
+      path: '/components/stat'
+      fullPath: '/components/stat'
+      preLoaderRoute: typeof MainLayoutComponentsStatImport
+      parentRoute: typeof MainLayoutImport
+    }
   }
 }
 
@@ -52,10 +124,20 @@ declare module '@tanstack/react-router' {
 
 interface MainLayoutRouteChildren {
   MainLayoutIndexRoute: typeof MainLayoutIndexRoute
+  MainLayoutComponentsAlertRoute: typeof MainLayoutComponentsAlertRoute
+  MainLayoutComponentsAutogridRoute: typeof MainLayoutComponentsAutogridRoute
+  MainLayoutComponentsCardRoute: typeof MainLayoutComponentsCardRoute
+  MainLayoutComponentsExternalLinkRoute: typeof MainLayoutComponentsExternalLinkRoute
+  MainLayoutComponentsStatRoute: typeof MainLayoutComponentsStatRoute
 }
 
 const MainLayoutRouteChildren: MainLayoutRouteChildren = {
   MainLayoutIndexRoute: MainLayoutIndexRoute,
+  MainLayoutComponentsAlertRoute: MainLayoutComponentsAlertRoute,
+  MainLayoutComponentsAutogridRoute: MainLayoutComponentsAutogridRoute,
+  MainLayoutComponentsCardRoute: MainLayoutComponentsCardRoute,
+  MainLayoutComponentsExternalLinkRoute: MainLayoutComponentsExternalLinkRoute,
+  MainLayoutComponentsStatRoute: MainLayoutComponentsStatRoute,
 }
 
 const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
@@ -65,24 +147,60 @@ const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
 export interface FileRoutesByFullPath {
   '': typeof MainLayoutRouteWithChildren
   '/': typeof MainLayoutIndexRoute
+  '/components/alert': typeof MainLayoutComponentsAlertRoute
+  '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/components/card': typeof MainLayoutComponentsCardRoute
+  '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
+  '/components/stat': typeof MainLayoutComponentsStatRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof MainLayoutIndexRoute
+  '/components/alert': typeof MainLayoutComponentsAlertRoute
+  '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/components/card': typeof MainLayoutComponentsCardRoute
+  '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
+  '/components/stat': typeof MainLayoutComponentsStatRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_main-layout': typeof MainLayoutRouteWithChildren
   '/_main-layout/': typeof MainLayoutIndexRoute
+  '/_main-layout/components/alert': typeof MainLayoutComponentsAlertRoute
+  '/_main-layout/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/_main-layout/components/card': typeof MainLayoutComponentsCardRoute
+  '/_main-layout/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
+  '/_main-layout/components/stat': typeof MainLayoutComponentsStatRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/'
+  fullPaths:
+    | ''
+    | '/'
+    | '/components/alert'
+    | '/components/autogrid'
+    | '/components/card'
+    | '/components/external-link'
+    | '/components/stat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/_main-layout' | '/_main-layout/'
+  to:
+    | '/'
+    | '/components/alert'
+    | '/components/autogrid'
+    | '/components/card'
+    | '/components/external-link'
+    | '/components/stat'
+  id:
+    | '__root__'
+    | '/_main-layout'
+    | '/_main-layout/'
+    | '/_main-layout/components/alert'
+    | '/_main-layout/components/autogrid'
+    | '/_main-layout/components/card'
+    | '/_main-layout/components/external-link'
+    | '/_main-layout/components/stat'
   fileRoutesById: FileRoutesById
 }
 
@@ -110,11 +228,36 @@ export const routeTree = rootRoute
     "/_main-layout": {
       "filePath": "_main-layout.tsx",
       "children": [
-        "/_main-layout/"
+        "/_main-layout/",
+        "/_main-layout/components/alert",
+        "/_main-layout/components/autogrid",
+        "/_main-layout/components/card",
+        "/_main-layout/components/external-link",
+        "/_main-layout/components/stat"
       ]
     },
     "/_main-layout/": {
       "filePath": "_main-layout/index.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/alert": {
+      "filePath": "_main-layout/components/alert.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/autogrid": {
+      "filePath": "_main-layout/components/autogrid.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/card": {
+      "filePath": "_main-layout/components/card.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/external-link": {
+      "filePath": "_main-layout/components/external-link.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/stat": {
+      "filePath": "_main-layout/components/stat.tsx",
       "parent": "/_main-layout"
     }
   }

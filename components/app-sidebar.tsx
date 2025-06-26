@@ -78,22 +78,32 @@ const quickstart = [
   }
 ];
 
-const layout = [
+const components = [
   {
-    title: 'AutoGrid',
-    url: '/layout/auto-grid',
-    icon: Type
+    title: 'Alert',
+    url: '/components/alert'
   },
   {
-    title: 'Contain',
-    url: '/layout/contain',
-    icon: Type
+    title: 'AutoGrid',
+    url: '/components/autogrid'
+  },
+  {
+    title: 'Card',
+    url: '/components/card'
+  },
+  {
+    title: 'External Link',
+    url: '/components/external-link'
+  },
+  {
+    title: 'Stat',
+    url: '/components/stat'
   }
 ];
 
 export function AppSidebar() {
   return (
-    <Sidebar variant="sidebar" collapsible="icon">
+    <Sidebar variant="sidebar">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -149,10 +159,10 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>Layout</SidebarGroupLabel>
+          <SidebarGroupLabel>Components</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {layout.map((item) => (
+              {components.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <Link
@@ -163,7 +173,6 @@ export function AppSidebar() {
                         className: 'bg-muted hover:bg-muted'
                       }}
                     >
-                      <item.icon />
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
