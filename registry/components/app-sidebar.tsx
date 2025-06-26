@@ -11,7 +11,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem
-} from '@/components/ui/sidebar';
+} from '@/registry/ui/sidebar';
 
 const getStarted = [
   {
@@ -44,6 +44,14 @@ const components = [
   {
     title: 'AutoGrid',
     url: '/components/autogrid'
+  },
+  {
+    title: 'Badge',
+    url: '/components/badge'
+  },
+  {
+    title: 'Button',
+    url: '/components/button'
   },
   {
     title: 'Card',

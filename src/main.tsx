@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider } from '@/registry/components/theme-provider.tsx';
+import { ThemeProvider } from '@/registry/providers/theme-provider.tsx';
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';

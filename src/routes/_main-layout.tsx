@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router';
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/registry/ui/sidebar';
 import { AppSidebar } from '@/registry/components/app-sidebar';
 import { ModeToggle } from '@/registry/components/mode-toggle';
 

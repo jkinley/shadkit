@@ -16,6 +16,8 @@ import { Route as MainLayoutIndexImport } from './routes/_main-layout/index'
 import { Route as MainLayoutComponentsStatImport } from './routes/_main-layout/components/stat'
 import { Route as MainLayoutComponentsExternalLinkImport } from './routes/_main-layout/components/external-link'
 import { Route as MainLayoutComponentsCardImport } from './routes/_main-layout/components/card'
+import { Route as MainLayoutComponentsButtonImport } from './routes/_main-layout/components/button'
+import { Route as MainLayoutComponentsBadgeImport } from './routes/_main-layout/components/badge'
 import { Route as MainLayoutComponentsAutogridImport } from './routes/_main-layout/components/autogrid'
 import { Route as MainLayoutComponentsAlertImport } from './routes/_main-layout/components/alert'
 import { Route as MainLayoutBlocksHeroImport } from './routes/_main-layout/blocks/hero'
@@ -49,6 +51,20 @@ const MainLayoutComponentsExternalLinkRoute =
 const MainLayoutComponentsCardRoute = MainLayoutComponentsCardImport.update({
   id: '/components/card',
   path: '/components/card',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsButtonRoute = MainLayoutComponentsButtonImport.update(
+  {
+    id: '/components/button',
+    path: '/components/button',
+    getParentRoute: () => MainLayoutRoute,
+  } as any,
+)
+
+const MainLayoutComponentsBadgeRoute = MainLayoutComponentsBadgeImport.update({
+  id: '/components/badge',
+  path: '/components/badge',
   getParentRoute: () => MainLayoutRoute,
 } as any)
 
@@ -110,6 +126,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainLayoutComponentsAutogridImport
       parentRoute: typeof MainLayoutImport
     }
+    '/_main-layout/components/badge': {
+      id: '/_main-layout/components/badge'
+      path: '/components/badge'
+      fullPath: '/components/badge'
+      preLoaderRoute: typeof MainLayoutComponentsBadgeImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/button': {
+      id: '/_main-layout/components/button'
+      path: '/components/button'
+      fullPath: '/components/button'
+      preLoaderRoute: typeof MainLayoutComponentsButtonImport
+      parentRoute: typeof MainLayoutImport
+    }
     '/_main-layout/components/card': {
       id: '/_main-layout/components/card'
       path: '/components/card'
@@ -141,6 +171,8 @@ interface MainLayoutRouteChildren {
   MainLayoutBlocksHeroRoute: typeof MainLayoutBlocksHeroRoute
   MainLayoutComponentsAlertRoute: typeof MainLayoutComponentsAlertRoute
   MainLayoutComponentsAutogridRoute: typeof MainLayoutComponentsAutogridRoute
+  MainLayoutComponentsBadgeRoute: typeof MainLayoutComponentsBadgeRoute
+  MainLayoutComponentsButtonRoute: typeof MainLayoutComponentsButtonRoute
   MainLayoutComponentsCardRoute: typeof MainLayoutComponentsCardRoute
   MainLayoutComponentsExternalLinkRoute: typeof MainLayoutComponentsExternalLinkRoute
   MainLayoutComponentsStatRoute: typeof MainLayoutComponentsStatRoute
@@ -151,6 +183,8 @@ const MainLayoutRouteChildren: MainLayoutRouteChildren = {
   MainLayoutBlocksHeroRoute: MainLayoutBlocksHeroRoute,
   MainLayoutComponentsAlertRoute: MainLayoutComponentsAlertRoute,
   MainLayoutComponentsAutogridRoute: MainLayoutComponentsAutogridRoute,
+  MainLayoutComponentsBadgeRoute: MainLayoutComponentsBadgeRoute,
+  MainLayoutComponentsButtonRoute: MainLayoutComponentsButtonRoute,
   MainLayoutComponentsCardRoute: MainLayoutComponentsCardRoute,
   MainLayoutComponentsExternalLinkRoute: MainLayoutComponentsExternalLinkRoute,
   MainLayoutComponentsStatRoute: MainLayoutComponentsStatRoute,
@@ -166,6 +200,8 @@ export interface FileRoutesByFullPath {
   '/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/components/alert': typeof MainLayoutComponentsAlertRoute
   '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/components/badge': typeof MainLayoutComponentsBadgeRoute
+  '/components/button': typeof MainLayoutComponentsButtonRoute
   '/components/card': typeof MainLayoutComponentsCardRoute
   '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
   '/components/stat': typeof MainLayoutComponentsStatRoute
@@ -176,6 +212,8 @@ export interface FileRoutesByTo {
   '/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/components/alert': typeof MainLayoutComponentsAlertRoute
   '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/components/badge': typeof MainLayoutComponentsBadgeRoute
+  '/components/button': typeof MainLayoutComponentsButtonRoute
   '/components/card': typeof MainLayoutComponentsCardRoute
   '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
   '/components/stat': typeof MainLayoutComponentsStatRoute
@@ -188,6 +226,8 @@ export interface FileRoutesById {
   '/_main-layout/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/_main-layout/components/alert': typeof MainLayoutComponentsAlertRoute
   '/_main-layout/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/_main-layout/components/badge': typeof MainLayoutComponentsBadgeRoute
+  '/_main-layout/components/button': typeof MainLayoutComponentsButtonRoute
   '/_main-layout/components/card': typeof MainLayoutComponentsCardRoute
   '/_main-layout/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
   '/_main-layout/components/stat': typeof MainLayoutComponentsStatRoute
@@ -201,6 +241,8 @@ export interface FileRouteTypes {
     | '/blocks/hero'
     | '/components/alert'
     | '/components/autogrid'
+    | '/components/badge'
+    | '/components/button'
     | '/components/card'
     | '/components/external-link'
     | '/components/stat'
@@ -210,6 +252,8 @@ export interface FileRouteTypes {
     | '/blocks/hero'
     | '/components/alert'
     | '/components/autogrid'
+    | '/components/badge'
+    | '/components/button'
     | '/components/card'
     | '/components/external-link'
     | '/components/stat'
@@ -220,6 +264,8 @@ export interface FileRouteTypes {
     | '/_main-layout/blocks/hero'
     | '/_main-layout/components/alert'
     | '/_main-layout/components/autogrid'
+    | '/_main-layout/components/badge'
+    | '/_main-layout/components/button'
     | '/_main-layout/components/card'
     | '/_main-layout/components/external-link'
     | '/_main-layout/components/stat'
@@ -254,6 +300,8 @@ export const routeTree = rootRoute
         "/_main-layout/blocks/hero",
         "/_main-layout/components/alert",
         "/_main-layout/components/autogrid",
+        "/_main-layout/components/badge",
+        "/_main-layout/components/button",
         "/_main-layout/components/card",
         "/_main-layout/components/external-link",
         "/_main-layout/components/stat"
@@ -273,6 +321,14 @@ export const routeTree = rootRoute
     },
     "/_main-layout/components/autogrid": {
       "filePath": "_main-layout/components/autogrid.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/badge": {
+      "filePath": "_main-layout/components/badge.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/button": {
+      "filePath": "_main-layout/components/button.tsx",
       "parent": "/_main-layout"
     },
     "/_main-layout/components/card": {
