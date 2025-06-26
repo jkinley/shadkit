@@ -7,7 +7,7 @@ import { ExternalLink } from '@/registry/ui/external-link';
 import { StatList, Stat, StatTitle, StatValue, StatDescription } from '@/registry/ui/stat';
 import { TrendingUp, TrendingDown } from 'lucide-react';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_main-layout/')({
   component: App
 });
 

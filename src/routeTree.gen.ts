@@ -11,98 +11,87 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
-import { Route as DashgridIndexImport } from './routes/dashgrid/index'
-import { Route as BasicFormIndexImport } from './routes/basic-form/index'
+import { Route as MainLayoutImport } from './routes/_main-layout'
+import { Route as MainLayoutIndexImport } from './routes/_main-layout/index'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
+const MainLayoutRoute = MainLayoutImport.update({
+  id: '/_main-layout',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MainLayoutIndexRoute = MainLayoutIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DashgridIndexRoute = DashgridIndexImport.update({
-  id: '/dashgrid/',
-  path: '/dashgrid/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const BasicFormIndexRoute = BasicFormIndexImport.update({
-  id: '/basic-form/',
-  path: '/basic-form/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => MainLayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_main-layout': {
+      id: '/_main-layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof MainLayoutImport
+      parentRoute: typeof rootRoute
+    }
+    '/_main-layout/': {
+      id: '/_main-layout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/basic-form/': {
-      id: '/basic-form/'
-      path: '/basic-form'
-      fullPath: '/basic-form'
-      preLoaderRoute: typeof BasicFormIndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dashgrid/': {
-      id: '/dashgrid/'
-      path: '/dashgrid'
-      fullPath: '/dashgrid'
-      preLoaderRoute: typeof DashgridIndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof MainLayoutIndexImport
+      parentRoute: typeof MainLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
+interface MainLayoutRouteChildren {
+  MainLayoutIndexRoute: typeof MainLayoutIndexRoute
+}
+
+const MainLayoutRouteChildren: MainLayoutRouteChildren = {
+  MainLayoutIndexRoute: MainLayoutIndexRoute,
+}
+
+const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
+  MainLayoutRouteChildren,
+)
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/basic-form': typeof BasicFormIndexRoute
-  '/dashgrid': typeof DashgridIndexRoute
+  '': typeof MainLayoutRouteWithChildren
+  '/': typeof MainLayoutIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/basic-form': typeof BasicFormIndexRoute
-  '/dashgrid': typeof DashgridIndexRoute
+  '/': typeof MainLayoutIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/basic-form/': typeof BasicFormIndexRoute
-  '/dashgrid/': typeof DashgridIndexRoute
+  '/_main-layout': typeof MainLayoutRouteWithChildren
+  '/_main-layout/': typeof MainLayoutIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/basic-form' | '/dashgrid'
+  fullPaths: '' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/basic-form' | '/dashgrid'
-  id: '__root__' | '/' | '/basic-form/' | '/dashgrid/'
+  to: '/'
+  id: '__root__' | '/_main-layout' | '/_main-layout/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  BasicFormIndexRoute: typeof BasicFormIndexRoute
-  DashgridIndexRoute: typeof DashgridIndexRoute
+  MainLayoutRoute: typeof MainLayoutRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  BasicFormIndexRoute: BasicFormIndexRoute,
-  DashgridIndexRoute: DashgridIndexRoute,
+  MainLayoutRoute: MainLayoutRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -115,19 +104,18 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/basic-form/",
-        "/dashgrid/"
+        "/_main-layout"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_main-layout": {
+      "filePath": "_main-layout.tsx",
+      "children": [
+        "/_main-layout/"
+      ]
     },
-    "/basic-form/": {
-      "filePath": "basic-form/index.tsx"
-    },
-    "/dashgrid/": {
-      "filePath": "dashgrid/index.tsx"
+    "/_main-layout/": {
+      "filePath": "_main-layout/index.tsx",
+      "parent": "/_main-layout"
     }
   }
 }
