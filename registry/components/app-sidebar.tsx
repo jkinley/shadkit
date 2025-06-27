@@ -13,66 +13,24 @@ import {
   SidebarMenuItem
 } from '@/registry/ui/sidebar';
 
-const getStarted = [
-  {
-    title: 'Introduction',
-    url: '/'
-  },
-  {
-    title: 'Typography',
-    url: '/quickstart/typography'
-  },
-  {
-    title: 'Color',
-    url: '/quickstart/color'
-  },
-  {
-    title: 'Spacing',
-    url: '/quickstart/spacing'
-  },
-  {
-    title: 'Components',
-    url: '/quickstart/components'
-  }
-];
-
-const components = [
-  {
-    title: 'Alert',
-    url: '/components/alert'
-  },
-  {
-    title: 'AutoGrid',
-    url: '/components/autogrid'
-  },
-  {
-    title: 'Badge',
-    url: '/components/badge'
-  },
-  {
-    title: 'Button',
-    url: '/components/button'
-  },
-  {
-    title: 'Card',
-    url: '/components/card'
-  },
-  {
-    title: 'External Link',
-    url: '/components/external-link'
-  },
-  {
-    title: 'Stat',
-    url: '/components/stat'
-  }
-];
-
-const blocks = [
-  {
-    title: 'Hero',
-    url: '/blocks/hero'
-  }
-];
+// Navigation configuration - conventional approach
+const navigation = {
+  'Get Started': [
+    { title: 'Introduction', url: '/' },
+    { title: 'Typography', url: '/get-started/typography' }
+  ],
+  Components: [
+    { title: 'Accordion', url: '/components/accordion' },
+    { title: 'Alert', url: '/components/alert' },
+    { title: 'AutoGrid', url: '/components/autogrid' },
+    { title: 'Badge', url: '/components/badge' },
+    { title: 'Button', url: '/components/button' },
+    { title: 'Card', url: '/components/card' },
+    { title: 'External Link', url: '/components/external-link' },
+    { title: 'Stat', url: '/components/stat' }
+  ],
+  Blocks: [{ title: 'Hero', url: '/blocks/hero' }]
+};
 
 export function AppSidebar() {
   return (
@@ -82,76 +40,38 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
               <Link to="/">
-                <span className="text-lg font-bold">ShadKit</span>
+                <span className="text-lg font-bold">Shad Kit</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Get Started</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {getStarted.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link to={item.url} activeOptions={{ exact: true }} activeProps={{ 'data-active': true }}>
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel>Components</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {components.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link
-                      to={item.url}
-                      activeOptions={{ exact: true }}
-                      activeProps={{
-                        'data-active': true,
-                        className: 'bg-muted hover:bg-muted'
-                      }}
-                    >
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup>
-          <SidebarGroupLabel>Components</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {blocks.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link
-                      to={item.url}
-                      activeOptions={{ exact: true }}
-                      activeProps={{
-                        'data-active': true,
-                        className: 'bg-muted hover:bg-muted'
-                      }}
-                    >
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        {Object.entries(navigation).map(([section, items]) => (
+          <SidebarGroup key={section}>
+            <SidebarGroupLabel>{section}</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {items.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <Link
+                        to={item.url}
+                        activeOptions={{ exact: true }}
+                        activeProps={{
+                          'data-active': true,
+                          className: 'bg-muted hover:bg-muted'
+                        }}
+                      >
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
       </SidebarContent>
       <SidebarFooter>Footer</SidebarFooter>
     </Sidebar>

@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as MainLayoutImport } from './routes/_main-layout'
 import { Route as MainLayoutIndexImport } from './routes/_main-layout/index'
+import { Route as MainLayoutGetStartedTypographyImport } from './routes/_main-layout/get-started/typography'
 import { Route as MainLayoutComponentsStatImport } from './routes/_main-layout/components/stat'
 import { Route as MainLayoutComponentsExternalLinkImport } from './routes/_main-layout/components/external-link'
 import { Route as MainLayoutComponentsCardImport } from './routes/_main-layout/components/card'
@@ -20,6 +21,7 @@ import { Route as MainLayoutComponentsButtonImport } from './routes/_main-layout
 import { Route as MainLayoutComponentsBadgeImport } from './routes/_main-layout/components/badge'
 import { Route as MainLayoutComponentsAutogridImport } from './routes/_main-layout/components/autogrid'
 import { Route as MainLayoutComponentsAlertImport } from './routes/_main-layout/components/alert'
+import { Route as MainLayoutComponentsAccordionImport } from './routes/_main-layout/components/accordion'
 import { Route as MainLayoutBlocksHeroImport } from './routes/_main-layout/blocks/hero'
 
 // Create/Update Routes
@@ -34,6 +36,13 @@ const MainLayoutIndexRoute = MainLayoutIndexImport.update({
   path: '/',
   getParentRoute: () => MainLayoutRoute,
 } as any)
+
+const MainLayoutGetStartedTypographyRoute =
+  MainLayoutGetStartedTypographyImport.update({
+    id: '/get-started/typography',
+    path: '/get-started/typography',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
 
 const MainLayoutComponentsStatRoute = MainLayoutComponentsStatImport.update({
   id: '/components/stat',
@@ -81,6 +90,13 @@ const MainLayoutComponentsAlertRoute = MainLayoutComponentsAlertImport.update({
   getParentRoute: () => MainLayoutRoute,
 } as any)
 
+const MainLayoutComponentsAccordionRoute =
+  MainLayoutComponentsAccordionImport.update({
+    id: '/components/accordion',
+    path: '/components/accordion',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
 const MainLayoutBlocksHeroRoute = MainLayoutBlocksHeroImport.update({
   id: '/blocks/hero',
   path: '/blocks/hero',
@@ -110,6 +126,13 @@ declare module '@tanstack/react-router' {
       path: '/blocks/hero'
       fullPath: '/blocks/hero'
       preLoaderRoute: typeof MainLayoutBlocksHeroImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/accordion': {
+      id: '/_main-layout/components/accordion'
+      path: '/components/accordion'
+      fullPath: '/components/accordion'
+      preLoaderRoute: typeof MainLayoutComponentsAccordionImport
       parentRoute: typeof MainLayoutImport
     }
     '/_main-layout/components/alert': {
@@ -161,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainLayoutComponentsStatImport
       parentRoute: typeof MainLayoutImport
     }
+    '/_main-layout/get-started/typography': {
+      id: '/_main-layout/get-started/typography'
+      path: '/get-started/typography'
+      fullPath: '/get-started/typography'
+      preLoaderRoute: typeof MainLayoutGetStartedTypographyImport
+      parentRoute: typeof MainLayoutImport
+    }
   }
 }
 
@@ -169,6 +199,7 @@ declare module '@tanstack/react-router' {
 interface MainLayoutRouteChildren {
   MainLayoutIndexRoute: typeof MainLayoutIndexRoute
   MainLayoutBlocksHeroRoute: typeof MainLayoutBlocksHeroRoute
+  MainLayoutComponentsAccordionRoute: typeof MainLayoutComponentsAccordionRoute
   MainLayoutComponentsAlertRoute: typeof MainLayoutComponentsAlertRoute
   MainLayoutComponentsAutogridRoute: typeof MainLayoutComponentsAutogridRoute
   MainLayoutComponentsBadgeRoute: typeof MainLayoutComponentsBadgeRoute
@@ -176,11 +207,13 @@ interface MainLayoutRouteChildren {
   MainLayoutComponentsCardRoute: typeof MainLayoutComponentsCardRoute
   MainLayoutComponentsExternalLinkRoute: typeof MainLayoutComponentsExternalLinkRoute
   MainLayoutComponentsStatRoute: typeof MainLayoutComponentsStatRoute
+  MainLayoutGetStartedTypographyRoute: typeof MainLayoutGetStartedTypographyRoute
 }
 
 const MainLayoutRouteChildren: MainLayoutRouteChildren = {
   MainLayoutIndexRoute: MainLayoutIndexRoute,
   MainLayoutBlocksHeroRoute: MainLayoutBlocksHeroRoute,
+  MainLayoutComponentsAccordionRoute: MainLayoutComponentsAccordionRoute,
   MainLayoutComponentsAlertRoute: MainLayoutComponentsAlertRoute,
   MainLayoutComponentsAutogridRoute: MainLayoutComponentsAutogridRoute,
   MainLayoutComponentsBadgeRoute: MainLayoutComponentsBadgeRoute,
@@ -188,6 +221,7 @@ const MainLayoutRouteChildren: MainLayoutRouteChildren = {
   MainLayoutComponentsCardRoute: MainLayoutComponentsCardRoute,
   MainLayoutComponentsExternalLinkRoute: MainLayoutComponentsExternalLinkRoute,
   MainLayoutComponentsStatRoute: MainLayoutComponentsStatRoute,
+  MainLayoutGetStartedTypographyRoute: MainLayoutGetStartedTypographyRoute,
 }
 
 const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
@@ -198,6 +232,7 @@ export interface FileRoutesByFullPath {
   '': typeof MainLayoutRouteWithChildren
   '/': typeof MainLayoutIndexRoute
   '/blocks/hero': typeof MainLayoutBlocksHeroRoute
+  '/components/accordion': typeof MainLayoutComponentsAccordionRoute
   '/components/alert': typeof MainLayoutComponentsAlertRoute
   '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
   '/components/badge': typeof MainLayoutComponentsBadgeRoute
@@ -205,11 +240,13 @@ export interface FileRoutesByFullPath {
   '/components/card': typeof MainLayoutComponentsCardRoute
   '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
   '/components/stat': typeof MainLayoutComponentsStatRoute
+  '/get-started/typography': typeof MainLayoutGetStartedTypographyRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof MainLayoutIndexRoute
   '/blocks/hero': typeof MainLayoutBlocksHeroRoute
+  '/components/accordion': typeof MainLayoutComponentsAccordionRoute
   '/components/alert': typeof MainLayoutComponentsAlertRoute
   '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
   '/components/badge': typeof MainLayoutComponentsBadgeRoute
@@ -217,6 +254,7 @@ export interface FileRoutesByTo {
   '/components/card': typeof MainLayoutComponentsCardRoute
   '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
   '/components/stat': typeof MainLayoutComponentsStatRoute
+  '/get-started/typography': typeof MainLayoutGetStartedTypographyRoute
 }
 
 export interface FileRoutesById {
@@ -224,6 +262,7 @@ export interface FileRoutesById {
   '/_main-layout': typeof MainLayoutRouteWithChildren
   '/_main-layout/': typeof MainLayoutIndexRoute
   '/_main-layout/blocks/hero': typeof MainLayoutBlocksHeroRoute
+  '/_main-layout/components/accordion': typeof MainLayoutComponentsAccordionRoute
   '/_main-layout/components/alert': typeof MainLayoutComponentsAlertRoute
   '/_main-layout/components/autogrid': typeof MainLayoutComponentsAutogridRoute
   '/_main-layout/components/badge': typeof MainLayoutComponentsBadgeRoute
@@ -231,6 +270,7 @@ export interface FileRoutesById {
   '/_main-layout/components/card': typeof MainLayoutComponentsCardRoute
   '/_main-layout/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
   '/_main-layout/components/stat': typeof MainLayoutComponentsStatRoute
+  '/_main-layout/get-started/typography': typeof MainLayoutGetStartedTypographyRoute
 }
 
 export interface FileRouteTypes {
@@ -239,6 +279,7 @@ export interface FileRouteTypes {
     | ''
     | '/'
     | '/blocks/hero'
+    | '/components/accordion'
     | '/components/alert'
     | '/components/autogrid'
     | '/components/badge'
@@ -246,10 +287,12 @@ export interface FileRouteTypes {
     | '/components/card'
     | '/components/external-link'
     | '/components/stat'
+    | '/get-started/typography'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/blocks/hero'
+    | '/components/accordion'
     | '/components/alert'
     | '/components/autogrid'
     | '/components/badge'
@@ -257,11 +300,13 @@ export interface FileRouteTypes {
     | '/components/card'
     | '/components/external-link'
     | '/components/stat'
+    | '/get-started/typography'
   id:
     | '__root__'
     | '/_main-layout'
     | '/_main-layout/'
     | '/_main-layout/blocks/hero'
+    | '/_main-layout/components/accordion'
     | '/_main-layout/components/alert'
     | '/_main-layout/components/autogrid'
     | '/_main-layout/components/badge'
@@ -269,6 +314,7 @@ export interface FileRouteTypes {
     | '/_main-layout/components/card'
     | '/_main-layout/components/external-link'
     | '/_main-layout/components/stat'
+    | '/_main-layout/get-started/typography'
   fileRoutesById: FileRoutesById
 }
 
@@ -298,13 +344,15 @@ export const routeTree = rootRoute
       "children": [
         "/_main-layout/",
         "/_main-layout/blocks/hero",
+        "/_main-layout/components/accordion",
         "/_main-layout/components/alert",
         "/_main-layout/components/autogrid",
         "/_main-layout/components/badge",
         "/_main-layout/components/button",
         "/_main-layout/components/card",
         "/_main-layout/components/external-link",
-        "/_main-layout/components/stat"
+        "/_main-layout/components/stat",
+        "/_main-layout/get-started/typography"
       ]
     },
     "/_main-layout/": {
@@ -313,6 +361,10 @@ export const routeTree = rootRoute
     },
     "/_main-layout/blocks/hero": {
       "filePath": "_main-layout/blocks/hero.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/accordion": {
+      "filePath": "_main-layout/components/accordion.tsx",
       "parent": "/_main-layout"
     },
     "/_main-layout/components/alert": {
@@ -341,6 +393,10 @@ export const routeTree = rootRoute
     },
     "/_main-layout/components/stat": {
       "filePath": "_main-layout/components/stat.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/get-started/typography": {
+      "filePath": "_main-layout/get-started/typography.tsx",
       "parent": "/_main-layout"
     }
   }
