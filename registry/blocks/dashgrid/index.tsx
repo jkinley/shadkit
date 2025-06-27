@@ -2,9 +2,12 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Card, CardContent, CardHeader, CardTitle } from '@/registry/ui/card';
 import { useUsers } from './-hooks/use-users';
 
-export const Route = createFileRoute('/dashgrid/')({
-  component: DashGrid
-});
+export default DashGrid;
+
+// When installed in user projects, uncomment this:
+// export const Route = createFileRoute('/dashgrid/')({
+//   component: DashGrid
+// });
 
 function DashGrid() {
   const { data: users, isLoading } = useUsers();

@@ -114,9 +114,12 @@ function BasicForm() {
   );
 }
 
-export const Route = createFileRoute('/basic-form/')({
-  component: BasicForm
-});
+export default BasicForm;
+
+// When installed in user projects, uncomment this:
+// export const Route = createFileRoute('/basic-form/')({
+//   component: BasicForm
+// });
 
 interface FormFieldProps {
   id: string;
