@@ -13,8 +13,6 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as MainLayoutImport } from './routes/_main-layout'
 import { Route as MainLayoutIndexImport } from './routes/_main-layout/index'
-import { Route as MainLayoutDashgridImport } from './routes/_main-layout/dashgrid'
-import { Route as MainLayoutBasicFormImport } from './routes/_main-layout/basic-form'
 import { Route as MainLayoutGetStartedTypographyImport } from './routes/_main-layout/get-started/typography'
 import { Route as MainLayoutComponentsStatImport } from './routes/_main-layout/components/stat'
 import { Route as MainLayoutComponentsExternalLinkImport } from './routes/_main-layout/components/external-link'
@@ -36,18 +34,6 @@ const MainLayoutRoute = MainLayoutImport.update({
 const MainLayoutIndexRoute = MainLayoutIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => MainLayoutRoute,
-} as any)
-
-const MainLayoutDashgridRoute = MainLayoutDashgridImport.update({
-  id: '/dashgrid',
-  path: '/dashgrid',
-  getParentRoute: () => MainLayoutRoute,
-} as any)
-
-const MainLayoutBasicFormRoute = MainLayoutBasicFormImport.update({
-  id: '/basic-form',
-  path: '/basic-form',
   getParentRoute: () => MainLayoutRoute,
 } as any)
 
@@ -127,20 +113,6 @@ declare module '@tanstack/react-router' {
       fullPath: ''
       preLoaderRoute: typeof MainLayoutImport
       parentRoute: typeof rootRoute
-    }
-    '/_main-layout/basic-form': {
-      id: '/_main-layout/basic-form'
-      path: '/basic-form'
-      fullPath: '/basic-form'
-      preLoaderRoute: typeof MainLayoutBasicFormImport
-      parentRoute: typeof MainLayoutImport
-    }
-    '/_main-layout/dashgrid': {
-      id: '/_main-layout/dashgrid'
-      path: '/dashgrid'
-      fullPath: '/dashgrid'
-      preLoaderRoute: typeof MainLayoutDashgridImport
-      parentRoute: typeof MainLayoutImport
     }
     '/_main-layout/': {
       id: '/_main-layout/'
@@ -225,8 +197,6 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface MainLayoutRouteChildren {
-  MainLayoutBasicFormRoute: typeof MainLayoutBasicFormRoute
-  MainLayoutDashgridRoute: typeof MainLayoutDashgridRoute
   MainLayoutIndexRoute: typeof MainLayoutIndexRoute
   MainLayoutBlocksHeroRoute: typeof MainLayoutBlocksHeroRoute
   MainLayoutComponentsAccordionRoute: typeof MainLayoutComponentsAccordionRoute
@@ -241,8 +211,6 @@ interface MainLayoutRouteChildren {
 }
 
 const MainLayoutRouteChildren: MainLayoutRouteChildren = {
-  MainLayoutBasicFormRoute: MainLayoutBasicFormRoute,
-  MainLayoutDashgridRoute: MainLayoutDashgridRoute,
   MainLayoutIndexRoute: MainLayoutIndexRoute,
   MainLayoutBlocksHeroRoute: MainLayoutBlocksHeroRoute,
   MainLayoutComponentsAccordionRoute: MainLayoutComponentsAccordionRoute,
@@ -262,8 +230,6 @@ const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
 
 export interface FileRoutesByFullPath {
   '': typeof MainLayoutRouteWithChildren
-  '/basic-form': typeof MainLayoutBasicFormRoute
-  '/dashgrid': typeof MainLayoutDashgridRoute
   '/': typeof MainLayoutIndexRoute
   '/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/components/accordion': typeof MainLayoutComponentsAccordionRoute
@@ -278,8 +244,6 @@ export interface FileRoutesByFullPath {
 }
 
 export interface FileRoutesByTo {
-  '/basic-form': typeof MainLayoutBasicFormRoute
-  '/dashgrid': typeof MainLayoutDashgridRoute
   '/': typeof MainLayoutIndexRoute
   '/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/components/accordion': typeof MainLayoutComponentsAccordionRoute
@@ -296,8 +260,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_main-layout': typeof MainLayoutRouteWithChildren
-  '/_main-layout/basic-form': typeof MainLayoutBasicFormRoute
-  '/_main-layout/dashgrid': typeof MainLayoutDashgridRoute
   '/_main-layout/': typeof MainLayoutIndexRoute
   '/_main-layout/blocks/hero': typeof MainLayoutBlocksHeroRoute
   '/_main-layout/components/accordion': typeof MainLayoutComponentsAccordionRoute
@@ -315,8 +277,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | ''
-    | '/basic-form'
-    | '/dashgrid'
     | '/'
     | '/blocks/hero'
     | '/components/accordion'
@@ -330,8 +290,6 @@ export interface FileRouteTypes {
     | '/get-started/typography'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/basic-form'
-    | '/dashgrid'
     | '/'
     | '/blocks/hero'
     | '/components/accordion'
@@ -346,8 +304,6 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/_main-layout'
-    | '/_main-layout/basic-form'
-    | '/_main-layout/dashgrid'
     | '/_main-layout/'
     | '/_main-layout/blocks/hero'
     | '/_main-layout/components/accordion'
@@ -386,8 +342,6 @@ export const routeTree = rootRoute
     "/_main-layout": {
       "filePath": "_main-layout.tsx",
       "children": [
-        "/_main-layout/basic-form",
-        "/_main-layout/dashgrid",
         "/_main-layout/",
         "/_main-layout/blocks/hero",
         "/_main-layout/components/accordion",
@@ -400,14 +354,6 @@ export const routeTree = rootRoute
         "/_main-layout/components/stat",
         "/_main-layout/get-started/typography"
       ]
-    },
-    "/_main-layout/basic-form": {
-      "filePath": "_main-layout/basic-form.tsx",
-      "parent": "/_main-layout"
-    },
-    "/_main-layout/dashgrid": {
-      "filePath": "_main-layout/dashgrid.tsx",
-      "parent": "/_main-layout"
     },
     "/_main-layout/": {
       "filePath": "_main-layout/index.tsx",
