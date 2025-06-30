@@ -11,98 +11,319 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
-import { Route as DashgridIndexImport } from './routes/dashgrid/index'
-import { Route as BasicFormIndexImport } from './routes/basic-form/index'
+import { Route as MainLayoutImport } from './routes/_main-layout'
+import { Route as MainLayoutIndexImport } from './routes/_main-layout/index'
+import { Route as MainLayoutGetStartedTypographyImport } from './routes/_main-layout/get-started/typography'
+import { Route as MainLayoutComponentsStatImport } from './routes/_main-layout/components/stat'
+import { Route as MainLayoutComponentsExternalLinkImport } from './routes/_main-layout/components/external-link'
+import { Route as MainLayoutComponentsCardImport } from './routes/_main-layout/components/card'
+import { Route as MainLayoutComponentsButtonImport } from './routes/_main-layout/components/button'
+import { Route as MainLayoutComponentsBadgeImport } from './routes/_main-layout/components/badge'
+import { Route as MainLayoutComponentsAutogridImport } from './routes/_main-layout/components/autogrid'
+import { Route as MainLayoutComponentsAlertImport } from './routes/_main-layout/components/alert'
+import { Route as MainLayoutComponentsAccordionImport } from './routes/_main-layout/components/accordion'
+import { Route as MainLayoutBlocksHeroImport } from './routes/_main-layout/blocks/hero'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
+const MainLayoutRoute = MainLayoutImport.update({
+  id: '/_main-layout',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const MainLayoutIndexRoute = MainLayoutIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => MainLayoutRoute,
 } as any)
 
-const DashgridIndexRoute = DashgridIndexImport.update({
-  id: '/dashgrid/',
-  path: '/dashgrid/',
-  getParentRoute: () => rootRoute,
+const MainLayoutGetStartedTypographyRoute =
+  MainLayoutGetStartedTypographyImport.update({
+    id: '/get-started/typography',
+    path: '/get-started/typography',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
+const MainLayoutComponentsStatRoute = MainLayoutComponentsStatImport.update({
+  id: '/components/stat',
+  path: '/components/stat',
+  getParentRoute: () => MainLayoutRoute,
 } as any)
 
-const BasicFormIndexRoute = BasicFormIndexImport.update({
-  id: '/basic-form/',
-  path: '/basic-form/',
-  getParentRoute: () => rootRoute,
+const MainLayoutComponentsExternalLinkRoute =
+  MainLayoutComponentsExternalLinkImport.update({
+    id: '/components/external-link',
+    path: '/components/external-link',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
+const MainLayoutComponentsCardRoute = MainLayoutComponentsCardImport.update({
+  id: '/components/card',
+  path: '/components/card',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsButtonRoute = MainLayoutComponentsButtonImport.update(
+  {
+    id: '/components/button',
+    path: '/components/button',
+    getParentRoute: () => MainLayoutRoute,
+  } as any,
+)
+
+const MainLayoutComponentsBadgeRoute = MainLayoutComponentsBadgeImport.update({
+  id: '/components/badge',
+  path: '/components/badge',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsAutogridRoute =
+  MainLayoutComponentsAutogridImport.update({
+    id: '/components/autogrid',
+    path: '/components/autogrid',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
+const MainLayoutComponentsAlertRoute = MainLayoutComponentsAlertImport.update({
+  id: '/components/alert',
+  path: '/components/alert',
+  getParentRoute: () => MainLayoutRoute,
+} as any)
+
+const MainLayoutComponentsAccordionRoute =
+  MainLayoutComponentsAccordionImport.update({
+    id: '/components/accordion',
+    path: '/components/accordion',
+    getParentRoute: () => MainLayoutRoute,
+  } as any)
+
+const MainLayoutBlocksHeroRoute = MainLayoutBlocksHeroImport.update({
+  id: '/blocks/hero',
+  path: '/blocks/hero',
+  getParentRoute: () => MainLayoutRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_main-layout': {
+      id: '/_main-layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof MainLayoutImport
+      parentRoute: typeof rootRoute
+    }
+    '/_main-layout/': {
+      id: '/_main-layout/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof MainLayoutIndexImport
+      parentRoute: typeof MainLayoutImport
     }
-    '/basic-form/': {
-      id: '/basic-form/'
-      path: '/basic-form'
-      fullPath: '/basic-form'
-      preLoaderRoute: typeof BasicFormIndexImport
-      parentRoute: typeof rootRoute
+    '/_main-layout/blocks/hero': {
+      id: '/_main-layout/blocks/hero'
+      path: '/blocks/hero'
+      fullPath: '/blocks/hero'
+      preLoaderRoute: typeof MainLayoutBlocksHeroImport
+      parentRoute: typeof MainLayoutImport
     }
-    '/dashgrid/': {
-      id: '/dashgrid/'
-      path: '/dashgrid'
-      fullPath: '/dashgrid'
-      preLoaderRoute: typeof DashgridIndexImport
-      parentRoute: typeof rootRoute
+    '/_main-layout/components/accordion': {
+      id: '/_main-layout/components/accordion'
+      path: '/components/accordion'
+      fullPath: '/components/accordion'
+      preLoaderRoute: typeof MainLayoutComponentsAccordionImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/alert': {
+      id: '/_main-layout/components/alert'
+      path: '/components/alert'
+      fullPath: '/components/alert'
+      preLoaderRoute: typeof MainLayoutComponentsAlertImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/autogrid': {
+      id: '/_main-layout/components/autogrid'
+      path: '/components/autogrid'
+      fullPath: '/components/autogrid'
+      preLoaderRoute: typeof MainLayoutComponentsAutogridImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/badge': {
+      id: '/_main-layout/components/badge'
+      path: '/components/badge'
+      fullPath: '/components/badge'
+      preLoaderRoute: typeof MainLayoutComponentsBadgeImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/button': {
+      id: '/_main-layout/components/button'
+      path: '/components/button'
+      fullPath: '/components/button'
+      preLoaderRoute: typeof MainLayoutComponentsButtonImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/card': {
+      id: '/_main-layout/components/card'
+      path: '/components/card'
+      fullPath: '/components/card'
+      preLoaderRoute: typeof MainLayoutComponentsCardImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/external-link': {
+      id: '/_main-layout/components/external-link'
+      path: '/components/external-link'
+      fullPath: '/components/external-link'
+      preLoaderRoute: typeof MainLayoutComponentsExternalLinkImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/components/stat': {
+      id: '/_main-layout/components/stat'
+      path: '/components/stat'
+      fullPath: '/components/stat'
+      preLoaderRoute: typeof MainLayoutComponentsStatImport
+      parentRoute: typeof MainLayoutImport
+    }
+    '/_main-layout/get-started/typography': {
+      id: '/_main-layout/get-started/typography'
+      path: '/get-started/typography'
+      fullPath: '/get-started/typography'
+      preLoaderRoute: typeof MainLayoutGetStartedTypographyImport
+      parentRoute: typeof MainLayoutImport
     }
   }
 }
 
 // Create and export the route tree
 
+interface MainLayoutRouteChildren {
+  MainLayoutIndexRoute: typeof MainLayoutIndexRoute
+  MainLayoutBlocksHeroRoute: typeof MainLayoutBlocksHeroRoute
+  MainLayoutComponentsAccordionRoute: typeof MainLayoutComponentsAccordionRoute
+  MainLayoutComponentsAlertRoute: typeof MainLayoutComponentsAlertRoute
+  MainLayoutComponentsAutogridRoute: typeof MainLayoutComponentsAutogridRoute
+  MainLayoutComponentsBadgeRoute: typeof MainLayoutComponentsBadgeRoute
+  MainLayoutComponentsButtonRoute: typeof MainLayoutComponentsButtonRoute
+  MainLayoutComponentsCardRoute: typeof MainLayoutComponentsCardRoute
+  MainLayoutComponentsExternalLinkRoute: typeof MainLayoutComponentsExternalLinkRoute
+  MainLayoutComponentsStatRoute: typeof MainLayoutComponentsStatRoute
+  MainLayoutGetStartedTypographyRoute: typeof MainLayoutGetStartedTypographyRoute
+}
+
+const MainLayoutRouteChildren: MainLayoutRouteChildren = {
+  MainLayoutIndexRoute: MainLayoutIndexRoute,
+  MainLayoutBlocksHeroRoute: MainLayoutBlocksHeroRoute,
+  MainLayoutComponentsAccordionRoute: MainLayoutComponentsAccordionRoute,
+  MainLayoutComponentsAlertRoute: MainLayoutComponentsAlertRoute,
+  MainLayoutComponentsAutogridRoute: MainLayoutComponentsAutogridRoute,
+  MainLayoutComponentsBadgeRoute: MainLayoutComponentsBadgeRoute,
+  MainLayoutComponentsButtonRoute: MainLayoutComponentsButtonRoute,
+  MainLayoutComponentsCardRoute: MainLayoutComponentsCardRoute,
+  MainLayoutComponentsExternalLinkRoute: MainLayoutComponentsExternalLinkRoute,
+  MainLayoutComponentsStatRoute: MainLayoutComponentsStatRoute,
+  MainLayoutGetStartedTypographyRoute: MainLayoutGetStartedTypographyRoute,
+}
+
+const MainLayoutRouteWithChildren = MainLayoutRoute._addFileChildren(
+  MainLayoutRouteChildren,
+)
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/basic-form': typeof BasicFormIndexRoute
-  '/dashgrid': typeof DashgridIndexRoute
+  '': typeof MainLayoutRouteWithChildren
+  '/': typeof MainLayoutIndexRoute
+  '/blocks/hero': typeof MainLayoutBlocksHeroRoute
+  '/components/accordion': typeof MainLayoutComponentsAccordionRoute
+  '/components/alert': typeof MainLayoutComponentsAlertRoute
+  '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/components/badge': typeof MainLayoutComponentsBadgeRoute
+  '/components/button': typeof MainLayoutComponentsButtonRoute
+  '/components/card': typeof MainLayoutComponentsCardRoute
+  '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
+  '/components/stat': typeof MainLayoutComponentsStatRoute
+  '/get-started/typography': typeof MainLayoutGetStartedTypographyRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/basic-form': typeof BasicFormIndexRoute
-  '/dashgrid': typeof DashgridIndexRoute
+  '/': typeof MainLayoutIndexRoute
+  '/blocks/hero': typeof MainLayoutBlocksHeroRoute
+  '/components/accordion': typeof MainLayoutComponentsAccordionRoute
+  '/components/alert': typeof MainLayoutComponentsAlertRoute
+  '/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/components/badge': typeof MainLayoutComponentsBadgeRoute
+  '/components/button': typeof MainLayoutComponentsButtonRoute
+  '/components/card': typeof MainLayoutComponentsCardRoute
+  '/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
+  '/components/stat': typeof MainLayoutComponentsStatRoute
+  '/get-started/typography': typeof MainLayoutGetStartedTypographyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
-  '/basic-form/': typeof BasicFormIndexRoute
-  '/dashgrid/': typeof DashgridIndexRoute
+  '/_main-layout': typeof MainLayoutRouteWithChildren
+  '/_main-layout/': typeof MainLayoutIndexRoute
+  '/_main-layout/blocks/hero': typeof MainLayoutBlocksHeroRoute
+  '/_main-layout/components/accordion': typeof MainLayoutComponentsAccordionRoute
+  '/_main-layout/components/alert': typeof MainLayoutComponentsAlertRoute
+  '/_main-layout/components/autogrid': typeof MainLayoutComponentsAutogridRoute
+  '/_main-layout/components/badge': typeof MainLayoutComponentsBadgeRoute
+  '/_main-layout/components/button': typeof MainLayoutComponentsButtonRoute
+  '/_main-layout/components/card': typeof MainLayoutComponentsCardRoute
+  '/_main-layout/components/external-link': typeof MainLayoutComponentsExternalLinkRoute
+  '/_main-layout/components/stat': typeof MainLayoutComponentsStatRoute
+  '/_main-layout/get-started/typography': typeof MainLayoutGetStartedTypographyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/basic-form' | '/dashgrid'
+  fullPaths:
+    | ''
+    | '/'
+    | '/blocks/hero'
+    | '/components/accordion'
+    | '/components/alert'
+    | '/components/autogrid'
+    | '/components/badge'
+    | '/components/button'
+    | '/components/card'
+    | '/components/external-link'
+    | '/components/stat'
+    | '/get-started/typography'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/basic-form' | '/dashgrid'
-  id: '__root__' | '/' | '/basic-form/' | '/dashgrid/'
+  to:
+    | '/'
+    | '/blocks/hero'
+    | '/components/accordion'
+    | '/components/alert'
+    | '/components/autogrid'
+    | '/components/badge'
+    | '/components/button'
+    | '/components/card'
+    | '/components/external-link'
+    | '/components/stat'
+    | '/get-started/typography'
+  id:
+    | '__root__'
+    | '/_main-layout'
+    | '/_main-layout/'
+    | '/_main-layout/blocks/hero'
+    | '/_main-layout/components/accordion'
+    | '/_main-layout/components/alert'
+    | '/_main-layout/components/autogrid'
+    | '/_main-layout/components/badge'
+    | '/_main-layout/components/button'
+    | '/_main-layout/components/card'
+    | '/_main-layout/components/external-link'
+    | '/_main-layout/components/stat'
+    | '/_main-layout/get-started/typography'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  BasicFormIndexRoute: typeof BasicFormIndexRoute
-  DashgridIndexRoute: typeof DashgridIndexRoute
+  MainLayoutRoute: typeof MainLayoutRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  BasicFormIndexRoute: BasicFormIndexRoute,
-  DashgridIndexRoute: DashgridIndexRoute,
+  MainLayoutRoute: MainLayoutRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -115,19 +336,68 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/basic-form/",
-        "/dashgrid/"
+        "/_main-layout"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_main-layout": {
+      "filePath": "_main-layout.tsx",
+      "children": [
+        "/_main-layout/",
+        "/_main-layout/blocks/hero",
+        "/_main-layout/components/accordion",
+        "/_main-layout/components/alert",
+        "/_main-layout/components/autogrid",
+        "/_main-layout/components/badge",
+        "/_main-layout/components/button",
+        "/_main-layout/components/card",
+        "/_main-layout/components/external-link",
+        "/_main-layout/components/stat",
+        "/_main-layout/get-started/typography"
+      ]
     },
-    "/basic-form/": {
-      "filePath": "basic-form/index.tsx"
+    "/_main-layout/": {
+      "filePath": "_main-layout/index.tsx",
+      "parent": "/_main-layout"
     },
-    "/dashgrid/": {
-      "filePath": "dashgrid/index.tsx"
+    "/_main-layout/blocks/hero": {
+      "filePath": "_main-layout/blocks/hero.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/accordion": {
+      "filePath": "_main-layout/components/accordion.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/alert": {
+      "filePath": "_main-layout/components/alert.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/autogrid": {
+      "filePath": "_main-layout/components/autogrid.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/badge": {
+      "filePath": "_main-layout/components/badge.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/button": {
+      "filePath": "_main-layout/components/button.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/card": {
+      "filePath": "_main-layout/components/card.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/external-link": {
+      "filePath": "_main-layout/components/external-link.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/components/stat": {
+      "filePath": "_main-layout/components/stat.tsx",
+      "parent": "/_main-layout"
+    },
+    "/_main-layout/get-started/typography": {
+      "filePath": "_main-layout/get-started/typography.tsx",
+      "parent": "/_main-layout"
     }
   }
 }
