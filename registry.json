@@ -96,66 +96,6 @@
       ]
     },
     {
-      "name": "dashgrid",
-      "type": "registry:block",
-      "title": "DashGrid",
-      "description": "A grid layout for displaying dashboard items.",
-      "registryDependencies": [
-        "https://shadkit.vercel.app/r/card.json"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/dashgrid/index.tsx",
-          "type": "registry:page",
-          "target": "~/src/routes/dashgrid/index.tsx"
-        },
-        {
-          "path": "registry/blocks/dashgrid/-hooks/use-users.tsx",
-          "type": "registry:hook",
-          "target": "~/src/routes/dashgrid/-hooks/use-users.tsx"
-        },
-        {
-          "path": "registry/blocks/dashgrid/-lib/users.tsx",
-          "type": "registry:lib",
-          "target": "~/src/routes/dashgrid/-lib/users.tsx"
-        }
-      ]
-    },
-    {
-      "name": "basic-form",
-      "type": "registry:block",
-      "title": "BasicForm",
-      "description": "A basic tanstack form with zod validations using react query.",
-      "dependencies": [
-        "@tanstack/react-form",
-        "@radix-ui/react-label",
-        "@radix-ui/react-select",
-        "zod"
-      ],
-      "registryDependencies": [
-        "https://shadkit.vercel.app/r/input.json",
-        "https://shadkit.vercel.app/r/label.json",
-        "https://shadkit.vercel.app/r/textarea.json"
-      ],
-      "files": [
-        {
-          "path": "registry/blocks/basic-form/index.tsx",
-          "type": "registry:page",
-          "target": "~/src/routes/basic-form/index.tsx"
-        },
-        {
-          "path": "registry/blocks/basic-form/-hooks/use-save-user.tsx",
-          "type": "registry:hook",
-          "target": "~/src/routes/basic-form/-hooks/use-save-user.tsx"
-        },
-        {
-          "path": "registry/blocks/basic-form/-lib/save-user.tsx",
-          "type": "registry:lib",
-          "target": "~/src/routes/basic-form/-lib/save-user.tsx"
-        }
-      ]
-    },
-    {
       "name": "hero",
       "type": "registry:block",
       "title": "Hero",
